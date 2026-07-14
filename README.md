@@ -101,3 +101,7 @@ Please cite our paper when using the code. You can use the following bibtex
 }
 
 ```
+
+## Contact
+If you have any questions, please feel free to contact me via [email](luoff@zju.edu.cn) without any hesitation.
+
