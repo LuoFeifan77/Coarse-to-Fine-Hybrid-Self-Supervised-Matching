@@ -1,19 +1,19 @@
 # general setting
 backend: dp # DataParallel
 type: Hybrid_Self_Supervised_Model
-num_gpu: 1 # 这里设置1, 表示只在单卡上运行， 不要改动
-gpu_idx: 4 # 指定运行下标
+num_gpu: 1 # 
+gpu_idx: 4 # 
 manual_seed: 1234
 # refine: 12
 n_lb: 140
 n_elas: 60
 non-isometric: false
 partial: false
-visualize: false
+visualize: true
 
 # path
 path:
-  resume_state: experiments/hybrid_self_supervised/scape/models/19000.pth
+  resume_state: checkpoints/scape.pth
   resume: false
 
 # datasets
@@ -42,32 +42,7 @@ networks:
     tau: 0.07
     hard: true
 
-# training setting
-# train:
-#   optims:
-#     feature_extractor:
-#       type: Adam
-#       lr: 1.0e-3
-#   schedulers:
-#     feature_extractor:
-#       type: none
-#   losses:
-#     surfmnet_loss:
-#       type: SURFMNetLoss
-#       w_bij: 1.0
-#       w_orth: 1.0
-#       w_lap: 0.0
-#     hs_surfmnet_loss:
-#       type: HS_SURFMNetLoss
-#       w_bij: 1.0
-#       w_orth: 0.0
-#       w_lap: 0.0
-#     align_loss:
-#       type: SquaredFrobeniusLoss
-#       loss_weight: 1.0
-#     hs_align_loss:
-#       type: SquaredHilbertSchmidtLoss
-#       loss_weight: 1.0
+
 # validation setting
 val:
   save_geo_errors: true

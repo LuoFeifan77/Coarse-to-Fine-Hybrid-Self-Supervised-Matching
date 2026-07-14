@@ -1,8 +1,8 @@
 # general setting
 backend: dp # DataParallel
 type: Hybrid_Self_Supervised_Model
-num_gpu: 1 # 这里设置1, 表示只在单卡上运行， 不要改动
-gpu_idx: 5 # 指定运行下标
+num_gpu: 1 # 
+gpu_idx: 5 # 
 manual_seed: 1234
 n_lb: 140
 n_elas: 60
@@ -12,7 +12,7 @@ visualize: false
 
 # path
 path:
-  resume_state: experiments/hybrid_self_supervised/scape/models/23000.pth #experiments/hybrid_self_supervised/scape/models/50000.pth
+  resume_state: checkpoints/scape.pth
   resume: false
 
 # datasets

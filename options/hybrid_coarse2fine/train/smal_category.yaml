@@ -30,7 +30,7 @@ datasets:
     type: PairSmalDataset
     phase: test
     data_root: ../data/SMAL_r/
-    category: true
+    category: true   # note this !!!
     return_evecs: true
     return_faces: true
     num_evecs: 200

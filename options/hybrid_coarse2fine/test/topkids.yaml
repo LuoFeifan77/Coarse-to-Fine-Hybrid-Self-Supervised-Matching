@@ -1,8 +1,8 @@
 # general setting
 backend: dp # DataParallel
 type: Hybrid_Self_Supervised_Model
-num_gpu: 1 # 这里设置1, 表示只在单卡上运行， 不要改动
-gpu_idx: 6 # 指定运行下标
+num_gpu: 1 # 
+gpu_idx: 6 # 
 manual_seed: 1234
 n_lb: 140
 n_elas: 60
@@ -13,7 +13,7 @@ visualize: true #true
 
 # path
 path:
-  resume_state: checkpoints/ours/topkids/models/12000.pth
+  resume_state: checkpoints/topkids.pth
   resume: false
 
 # datasets
@@ -41,37 +41,6 @@ networks:
     tau: 0.07
     hard: true
 
-# training setting
-# train:
-#   optims:
-#     feature_extractor:
-#       type: Adam
-#       lr: 1.0e-3
-#   schedulers:
-#     feature_extractor:
-#       type: none
-#   losses:
-#     ##lb loss terms
-#     functional_map_loss:  # key loss
-#       type: FunctionalMapLoss
-#       w_orth: 1.0
-#       w_bij: 1.0
-#     spatial_contrast_loss:
-#       type: SpatialContrastiveLoss
-#       w_cross: 1.0   # inter contrastive
-#       w_self: 0.5    # intra contrastive
-#     ##elas loss terms
-#     elas_functional_map_loss:  # key loss
-#       type: ElasFunctionalMapLoss
-#       w_elas_orth: 1.0
-#       w_elas_bij: 1.0
-#     elas_spatial_contrast_loss:
-#       type: ElasSpatialContrastiveLoss
-#       w_elas_cross: 1.0  #1.0  # inter contrastive
-#       w_elas_self: 0.5  #1.0   # intra contrastive
-    # dirichlet_loss:
-    #   type: DirichletLoss
-    #   loss_weight: 5.0
 
 # validation setting
 val:

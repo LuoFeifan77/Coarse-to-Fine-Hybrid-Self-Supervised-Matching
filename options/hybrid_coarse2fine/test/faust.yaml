@@ -8,11 +8,11 @@ non-isometric: false
 n_lb: 140
 n_elas: 60
 partial: false
-visualize: false
+visualize: true
 
 # path
 path:
-  resume_state: checkpoints/ours/faust/models/60000.pth
+  resume_state: checkpoints/faust.pth
   resume: false
 
 # datasets
