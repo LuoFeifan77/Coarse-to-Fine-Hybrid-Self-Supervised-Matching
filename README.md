@@ -9,7 +9,6 @@ Our code relies on PyTorch, along with several other common libraries. We recomm
 ```bash 
 # create new virtual environment
 conda env create --name coarse2fine -f environment.yml
-
 conda activate coarse2fine
 ```
 In addition, this code uses python bindings for an implementation of the Discrete Shell Energy. 
@@ -71,9 +70,16 @@ To visualize the final results.
 ```python
 python visualize.py --opt options/hybrid_coarse2fine/test/smal.yaml
 ```
-The visualized images will be saved in [results](https://drive.google.com/drive/folders/1kzNx8Z6ykjko3wRzMQ8jVvB2xVDiJEX7) folder.
+The visualized images will be saved in results folder.
+
+
 ## Pretrained models
 You can find all pre-trained models in [checkpoints](checkpoints) for reproducibility.
+
+
+## Results
+You can find all matching results in [results](https://drive.google.com/drive/folders/1kzNx8Z6ykjko3wRzMQ8jVvB2xVDiJEX7).
+
 
 ## Acknowledgement
 The framework implementation is adapted from [Hybrid Functional Maps for Crease-Aware Non-Isometric Shape Matching](https://github.com/xieyizheng/hybridfmaps/).
