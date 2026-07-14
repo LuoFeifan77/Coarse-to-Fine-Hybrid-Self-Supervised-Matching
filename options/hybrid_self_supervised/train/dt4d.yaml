@@ -1,0 +1,114 @@
+backend: dp
+type:  Hybrid_Self_Supervised_Model
+num_gpu: 1 #
+gpu_idx: 6 # 
+
+manual_seed: 1234
+non-isometric: true
+partial: false
+n_lb: 140
+n_elas: 60
+path:
+  resume_state:
+
+# datasets
+datasets:
+  train_dataset1:
+    name: DT4DIntraTrain
+    type: PairDT4DDataset
+    phase: train
+    data_root: ../data/DT4D_r/
+    inter_class: false
+    return_evecs: true
+    return_faces: true
+    num_evecs: 200
+    return_corr: false
+    return_dist: false
+    return_elas_evecs: true
+    bending_weight: 0.01
+  train_dataset2:
+    name: DT4DInterTrain
+    type: PairDT4DDataset
+    phase: train
+    data_root: ../data/DT4D_r/
+    inter_class: true
+    return_evecs: true
+    return_faces: true
+    num_evecs: 200
+    return_corr: false
+    return_dist: false
+    return_elas_evecs: true
+    bending_weight: 0.01
+  test_dataset:
+    name: DT4DTest
+    type: PairDT4DDataset
+    phase: test
+    data_root: ../data/DT4D_r/
+    inter_class: true
+    return_evecs: true
+    return_faces: true
+    num_evecs: 200
+    return_corr: true
+    return_dist: true
+    return_elas_evecs: true
+    bending_weight: 0.01
+  batch_size: 1
+  num_worker: 32
+
+# network setting
+networks:
+  feature_extractor:
+    type: DiffusionNet
+    in_channels: 16
+    out_channels: 128
+    cache_dir: ../data/DT4D_r/diffusion
+    input_type: hks
+  permutation:
+    type: Similarity
+    tau: 0.07
+
+# training setting
+train:
+  total_epochs: 10
+  optims:
+    feature_extractor:
+      type: Adam
+      lr: 1.0e-3
+  schedulers:
+    feature_extractor:
+      type: CosineAnnealingLR
+      eta_min: 1.0e-4
+      T_max: 10
+  losses:
+    ##lb loss terms
+    functional_map_loss:  # key loss
+      type: FunctionalMapLoss
+      w_orth: 1.0
+      w_bij: 1.0
+    spatial_contrast_loss:
+      type: SpatialContrastiveLoss
+      w_cross: 1.0  
+      w_self: 0.5   
+
+    ##elas loss terms
+    elas_functional_map_loss:  # key loss
+      type: ElasFunctionalMapLoss
+      w_elas_orth: 1.0
+      w_elas_bij: 1.0
+    elas_spatial_contrast_loss:
+      type: ElasSpatialContrastiveLoss
+      w_elas_cross: 1.0 
+      w_elas_self: 0.5  
+
+val:
+  val_freq: 2000
+  metrics:
+    geo_error:
+      type: calculate_geodesic_error
+    plot_pck:
+      type: plot_pck
+
+# log setting
+logger:
+  print_freq: 100
+  save_checkpoint_freq: 2000
