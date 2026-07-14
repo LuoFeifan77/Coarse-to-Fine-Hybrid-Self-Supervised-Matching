@@ -1,4 +1,4 @@
-# [Hybrid Functional Maps for Crease-Aware Non-Isometric Shape Matching [ECCV 2026]](https://luofeifan77.github.io/publications/)
+# [Coarse-to-Fine: A Hybrid Self-Supervised Method for Non-rigid 3D Shape Matching [ECCV 2026]](https://luofeifan77.github.io/publications/)
  [![PDF](https://img.shields.io/badge/PDF-Download-blue)](https://arxiv.org/pdf/2606.26557)
 <!--[![ArXiv](https://img.shields.io/badge/arXiv-2312.03678-b31b1b.svg)](https://arxiv.org/abs/2312.03678)-->
 
@@ -41,7 +41,7 @@ python preprocess.py --data_root ../data/SMAL_r/ --no_normalize --n_eig 200
 ## Train
 To train a specific model on a specified dataset.
 ```python
-python train.py --opt options/hybrid_ulrssm/train/smal.yaml
+python train.py --opt options/hybrid_coarse2fine/train/smal.yaml
 ```
 You can visualize the training process in tensorboard or via wandb.
 ```bash
@@ -51,7 +51,7 @@ tensorboard --logdir experiments/
 ## Test
 To test a specific model on a specified dataset.
 ```python
-python test.py --opt options/hybrid_ulrssm/test/smal.yaml
+python test.py --opt options/hybrid_coarse2fine/test/smal.yaml
 ```
 The qualitative and quantitative results will be saved in [results](results) folder.
 
@@ -69,7 +69,7 @@ pip install git+https://github.com/nmwsharp/polyscope-py.git
 ```
 To visualize the final results.
 ```python
-python visualize.py --opt options/hybrid_ulrssm/test/smal.yaml
+python visualize.py --opt options/hybrid_coarse2fine/test/smal.yaml
 ```
 The visualized images will be saved in [results](results) folder.
 ## Pretrained models
