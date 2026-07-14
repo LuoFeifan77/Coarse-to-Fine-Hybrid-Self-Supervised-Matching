@@ -71,7 +71,7 @@ To visualize the final results.
 ```python
 python visualize.py --opt options/hybrid_coarse2fine/test/smal.yaml
 ```
-The visualized images will be saved in [results](results) folder.
+The visualized images will be saved in [results](https://drive.google.com/drive/folders/1kzNx8Z6ykjko3wRzMQ8jVvB2xVDiJEX7) folder.
 ## Pretrained models
 You can find all pre-trained models in [checkpoints](checkpoints) for reproducibility.
 
