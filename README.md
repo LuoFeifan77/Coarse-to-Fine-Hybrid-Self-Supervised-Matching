@@ -78,7 +78,7 @@ You can find all pre-trained models in [checkpoints](checkpoints) for reproducib
 
 
 ## Results
-You can find all matching results in [results](https://drive.google.com/drive/folders/1kzNx8Z6ykjko3wRzMQ8jVvB2xVDiJEX7).
+You can find all matching results in [coarse2fine_matching_results](https://drive.google.com/drive/folders/1kzNx8Z6ykjko3wRzMQ8jVvB2xVDiJEX7).
 
 
 ## Acknowledgement
