@@ -1,4 +1,4 @@
-name: hybridfmaps
+name: coarse2fine
 channels:
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
   - conda-forge
