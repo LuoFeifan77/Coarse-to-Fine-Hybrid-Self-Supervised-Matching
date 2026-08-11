@@ -55,6 +55,7 @@ dependencies:
   - zstandard=0.23.0
   - zstd=1.5.6
   - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu118
       - absl-py==2.3.1
       - addict==2.4.0
       - annotated-types==0.7.0
